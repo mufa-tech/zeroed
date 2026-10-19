@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>G1 vs G7 BC: which one to use</title>
+<meta name="description" content="What the G1 and G7 drag models are, why the G7 BC is smaller, how much the choice matters at distance, and a short checklist for picking the right one.">
+<meta name="theme-color" content="#0a0c0b">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://mufa-tech.github.io/zeroed/guides/g1-vs-g7/">
+<link rel="icon" type="image/png" href="/zeroed/icon.png">
+<link rel="apple-touch-icon" href="/zeroed/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Zeroed">
+<meta property="og:title" content="G1 vs G7 BC: which one to use">
+<meta property="og:description" content="What the G1 and G7 drag models are, why the G7 BC is smaller, how much the choice matters at distance, and a short checklist for picking the right one.">
+<meta property="og:url" content="https://mufa-tech.github.io/zeroed/guides/g1-vs-g7/">
+<meta property="og:image" content="https://mufa-tech.github.io/zeroed/icon.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="../../"><i aria-hidden="true"></i>Zeroed</a>
+<nav class="lang" aria-label="Language"><a href="../../guides/g1-vs-g7/" hreflang="en" lang="en" aria-current="page">EN</a><a href="../../tr/" hreflang="tr" lang="tr">TR</a><a href="../../de/" hreflang="de" lang="de">DE</a><a href="../../ru/" hreflang="ru" lang="ru">RU</a></nav>
+</div></header>
+<main class="wrap prose">
+<article>
+<p class="eyebrow">Guide</p>
+<h1>G1 vs G7 BC: which one to use</h1>
+<p class="lead">Two numbers on the box, two drag models in your app. What G1 and G7 actually are, why the G7 number is smaller, and how to pick the one that fits your bullet.</p>
+
+<h2>What a BC really says</h2>
+<p>A ballistic coefficient (BC) compares your bullet with a standard reference projectile. Each reference comes with a drag curve: how its drag coefficient (Cd) changes with speed, expressed as a Mach number. A point-mass solver takes that curve, scales it by your BC, and integrates the flight step by step.</p>
+<p>So a BC only means something together with its drag model. “0.505” on its own says nothing. “0.505 G1” does.</p>
+
+<h2>Two reference shapes, two curves</h2>
+<p><strong>G1</strong> is the old standard. Its reference is a flat-base projectile with a short, blunt nose, a shape few modern rifle bullets resemble. <strong>G7</strong> uses a long boattail projectile with a long, pointed nose, much closer to today’s long-range bullets.</p>
+<figure class="fig">
+<svg viewBox="0 0 640 262" role="img" aria-labelledby="cd-t"><title id="cd-t">Drag coefficient (Cd) versus Mach number for the standard G1 and G7 reference projectiles</title>
+<line class="gl" x1="70" y1="191.4" x2="610" y2="191.4"/><text x="62" y="195.4" text-anchor="end">0.1</text>
+<line class="gl" x1="70" y1="162.9" x2="610" y2="162.9"/><text x="62" y="166.9" text-anchor="end">0.2</text>
+<line class="gl" x1="70" y1="134.3" x2="610" y2="134.3"/><text x="62" y="138.3" text-anchor="end">0.3</text>
+<line class="gl" x1="70" y1="105.7" x2="610" y2="105.7"/><text x="62" y="109.7" text-anchor="end">0.4</text>
+<line class="gl" x1="70" y1="77.1" x2="610" y2="77.1"/><text x="62" y="81.1" text-anchor="end">0.5</text>
+<line class="gl" x1="70" y1="48.6" x2="610" y2="48.6"/><text x="62" y="52.6" text-anchor="end">0.6</text>
+<line class="gl" x1="70" y1="20.0" x2="610" y2="20.0"/><text x="62" y="24.0" text-anchor="end">0.7</text>
+<text x="160.0" y="240" text-anchor="middle">0.5</text>
+<text x="250.0" y="240" text-anchor="middle">1</text>
+<text x="340.0" y="240" text-anchor="middle">1.5</text>
+<text x="430.0" y="240" text-anchor="middle">2</text>
+<text x="520.0" y="240" text-anchor="middle">2.5</text>
+<text x="610.0" y="240" text-anchor="middle">3</text>
+<text x="70" y="240" text-anchor="middle">0</text>
+<line class="axis" x1="70" y1="220" x2="610" y2="220"/><line class="axis" x1="70" y1="20" x2="70" y2="220"/>
+<line class="los" x1="250.0" y1="20" x2="250.0" y2="220"/>
+<text x="258.0" y="206">Mach 1, speed of sound</text>
+<polyline class="c1" points="70.0,144.9 79.0,146.9 88.0,148.9 97.0,151.1 106.0,153.0 115.0,154.9 124.0,156.7 133.0,158.4 142.0,159.9 151.0,161.1 160.0,161.9 169.0,162.3 178.0,161.9 196.0,158.1 200.5,156.3 205.0,153.9 209.5,150.9 214.0,147.3 218.5,142.7 223.0,137.1 227.5,130.4 232.0,122.4 236.5,113.3 241.0,103.3 245.5,92.9 250.0,82.7 254.5,73.3 259.0,64.9 263.5,57.8 268.0,51.9 272.5,47.1 277.0,43.1 286.0,37.3 295.0,33.8 304.0,31.7 313.0,30.8 322.0,30.7 331.0,31.2 340.0,32.2 349.0,33.5 358.0,35.0 367.0,36.8 376.0,38.7 385.0,40.6 394.0,42.6 403.0,44.5 412.0,46.5 421.0,48.5 430.0,50.5 439.0,52.4 448.0,54.2 457.0,55.9 466.0,57.6 475.0,59.1 484.0,60.7 493.0,62.1 502.0,63.4 511.0,64.6 520.0,65.8 538.0,67.9 556.0,69.6 574.0,71.1 592.0,72.3 610.0,73.3"/>
+<polyline class="c2" points="70.0,185.8 79.0,185.8 88.0,185.8 97.0,185.9 106.0,185.9 115.0,185.9 124.0,185.9 133.0,185.9 142.0,185.9 151.0,185.9 160.0,185.9 169.0,185.9 178.0,185.9 187.0,185.8 196.0,185.7 200.5,185.5 205.0,185.3 209.5,185.0 214.0,184.5 218.5,183.8 223.0,182.7 227.5,180.9 232.0,178.2 236.5,172.6 241.0,161.3 245.5,134.5 250.0,111.3 254.5,105.3 259.0,104.5 263.5,104.7 268.0,105.3 272.5,106.1 277.0,107.0 286.0,109.0 295.0,111.1 304.0,113.4 313.0,115.5 322.0,117.7 340.0,121.7 349.0,123.5 358.0,125.3 367.0,126.9 376.0,128.3 385.0,129.7 394.0,130.9 403.0,132.1 412.0,133.1 421.0,134.0 430.0,134.9 439.0,135.7 448.0,136.5 457.0,137.4 466.0,138.2 475.0,139.0 484.0,139.8 493.0,140.6 502.0,141.4 511.0,142.1 520.0,142.9 529.0,143.7 538.0,144.5 547.0,145.3 556.0,146.1 565.0,146.8 574.0,147.6 583.0,148.4 592.0,149.2 601.0,150.0 610.0,150.7"/>
+<text class="l1" x="502.0" y="57.1" style="font-weight:700">G1</text>
+<text class="l2" x="502.0" y="134.3" style="font-weight:700">G7</text>
+<text x="340" y="258" text-anchor="middle">Mach number</text>
+<text x="14" y="120" text-anchor="middle" transform="rotate(-90 14 120)">Cd</text>
+</svg>
+<figcaption>The standard G1 and G7 drag tables (Cd vs Mach, McCoy/BRL), Mach 0 to 3, as used by point-mass solvers. Same scale for both curves.</figcaption>
+</figure>
+<p>Look at the shapes, not just the height. G7 has less drag overall, and its jump near the speed of sound is sharper. Both curves are the standard tables that ballistic solvers use, so the same model gives the same curve in every app.</p>
+
+<h2>Why the G7 number is smaller</h2>
+<p>The G7 reference already has low drag. A modern boattail bullet is much closer to it than to the G1 reference, so its BC relative to G7 is lower. For a typical long-range boattail bullet, the G7 BC is roughly half the G1 BC. That doesn’t make the bullet worse. It just means a different yardstick.</p>
+<p>The practical rule: never compare a G1 number with a G7 number, and never type one into a field meant for the other.</p>
+
+<h2>Why the shape of the curve matters</h2>
+<p>If your bullet’s drag curve has the same shape as the reference curve, a single BC fits at every speed. Long boattail bullets follow the G7 shape closely, so their G7 BC stays fairly constant as they slow down. Their G1 BC drifts with velocity. That is why some makers publish several G1 BCs for different velocity bands (multi-BC): each band is a straight-line fix for a curve that doesn’t quite fit.</p>
+<p>Flat-base bullets and many shorter hunting bullets are a different story. For them, G1 often fits well, and the G1 number is often the only one published.</p>
+
+<h2>Does it matter at your distances?</h2>
+<p>Here is the same bullet calculated twice, once with a G1 BC and once with a G7 BC, everything else equal.</p>
+<div class="tablewrap"><table class="data">
+<caption>Hypothetical 175 gr boattail bullet, MV 2600 fps, 100 yd zero, ICAO standard atmosphere. G1 0.505 vs G7 0.243. Calculated with the Zeroed solver. Example only.</caption>
+<thead><tr><th>Yards</th><th>G1 elev mil</th><th>G7 elev mil</th><th>G1 fps</th><th>G7 fps</th></tr></thead>
+<tbody>
+<tr><td>300</td><td>1.4</td><td>1.4</td><td>2095</td><td>2073</td></tr>
+<tr><td>500</td><td>3.5</td><td>3.5</td><td>1792</td><td>1758</td></tr>
+<tr><td>600</td><td>4.7</td><td>4.8</td><td>1653</td><td>1610</td></tr>
+<tr><td>800</td><td>7.6</td><td>7.9</td><td>1404</td><td>1330</td></tr>
+<tr><td>1000</td><td>11.4</td><td>11.9</td><td>1204</td><td>1089</td></tr>
+</tbody></table></div>
+<p>Out to about 500 yd the two models agree to within a click on most scopes. At 600 yd they are about 0.1 mil apart, at 1000 yd about 0.5 mil, roughly 20 inches. The G1 version also stays supersonic farther: in this example to about 1100 yd, against about 970 yd for G7.</p>
+<p>Which one is right? The table can’t tell you. It depends on how well each BC describes this bullet over the speeds it actually flies. Only shots at distance can answer that.</p>
+
+<h2>Which one to use: a short checklist</h2>
+<ul>
+<li><strong>Use the model the BC was published in.</strong> A G7 number goes in a G7 field. Always.</li>
+<li><strong>Long-range boattail bullet with a published G7 BC?</strong> Use G7.</li>
+<li><strong>Only a G1 BC available?</strong> Use it. If the maker publishes velocity bands, enter them as multi-BC.</li>
+<li><strong>Flat-base, round-nose or many short hunting bullets:</strong> G1 is a fine fit.</li>
+<li><strong>Don’t convert G1 to G7 with a fixed factor.</strong> The ratio between them changes with velocity, so a single factor is only right at one speed.</li>
+<li><strong>Know where the number came from.</strong> Some makers state how their BCs were measured. A measured value for your exact bullet beats a generic one.</li>
+<li><strong>Whatever you choose, confirm it at distance.</strong></li>
+</ul>
+
+<h2>Truing closes the gap</h2>
+<p>Even a good BC is an average over many bullets and lots, and your muzzle velocity reading has its own error. When your observed drop at distance disagrees with the calculation, adjust one input so the curve matches: muzzle velocity if the error shows up at mid range, BC if it only shows up far out. That is truing. After that, the drag model matters much less, because the curve now passes through your real impacts.</p>
+<p>Ready to put it on paper? See <a href="../dope-card/">How to make a DOPE card (and print it)</a>.</p>
+</article>
+<section class="wait" id="app">
+<h2>Try both models on your load</h2>
+<p>Zeroed is an offline ballistic calculator with a point-mass RK4 solver, G1/G7 BC and multi-BC. Spin drift, Coriolis and truing come with Pro. Free is a complete calculator out to 800 m / 875 yd. No account, no ads, no subscription.</p>
+<div class="cta"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mufatech.zeroed&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dg1-vs-g7">Get it on Google Play</a><a class="btn soon" href="../../#iphone">iPhone: coming soon</a></div>
+</section>
+</main>
+<footer><div class="wrap">
+<span>Zeroed is a calculation tool for sport shooting and hunting. Solutions are estimates; always confirm with real shots. No cookies, no trackers on this site.</span>
+<nav><a href="../../">Home</a><a href="../../privacy/">Privacy</a><a href="../../support/">Support</a><a href="mailto:hello@mufatech.com">hello@mufatech.com</a></nav>
+<nav class="guides" aria-label="Guides"><b>Guides</b><a href="../../guides/dope-card/">How to make a DOPE card</a><a href="../../guides/g1-vs-g7/">G1 vs G7 BC</a></nav>
+</div></footer>
+</body>
+</html>

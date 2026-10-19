@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Balistik hesaplama: mermi düşüşü, rüzgâr ve DOPE kartı</title>
+<meta name="description" content="Balistik hesaplama nasıl çalışır: MV, BC (G1/G7), dürbün yüksekliği, sıfırlama, basınç ve rüzgâr. Hesabı atışla doğrula, DOPE kartını hazırla ve yazdır.">
+<meta name="theme-color" content="#0a0c0b">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://mufa-tech.github.io/zeroed/tr/balistik-hesaplama/">
+<link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/zeroed/de/ballistikrechner/">
+<link rel="alternate" hreflang="tr" href="https://mufa-tech.github.io/zeroed/tr/balistik-hesaplama/">
+<link rel="icon" type="image/png" href="/zeroed/icon.png">
+<link rel="apple-touch-icon" href="/zeroed/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Zeroed">
+<meta property="og:title" content="Balistik hesaplama: mermi düşüşü, rüzgâr ve DOPE kartı">
+<meta property="og:description" content="Balistik hesaplama nasıl çalışır: MV, BC (G1/G7), dürbün yüksekliği, sıfırlama, basınç ve rüzgâr. Hesabı atışla doğrula, DOPE kartını hazırla ve yazdır.">
+<meta property="og:url" content="https://mufa-tech.github.io/zeroed/tr/balistik-hesaplama/">
+<meta property="og:image" content="https://mufa-tech.github.io/zeroed/icon.png">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="../../tr/"><i aria-hidden="true"></i>Zeroed</a>
+<nav class="lang" aria-label="Language"><a href="../../" hreflang="en" lang="en">EN</a><a href="../../tr/balistik-hesaplama/" hreflang="tr" lang="tr" aria-current="page">TR</a><a href="../../de/ballistikrechner/" hreflang="de" lang="de">DE</a><a href="../../ru/" hreflang="ru" lang="ru">RU</a></nav>
+</div></header>
+<main class="wrap prose">
+<article>
+<p class="eyebrow">Rehber</p>
+<h1>Balistik hesaplama: mermi düşüşü, rüzgâr ve DOPE kartı</h1>
+<p class="lead">Balistik hesaplayıcı ne yapar, hangi girdiler sonucu gerçekten değiştirir, hesabı atışla nasıl doğrularsın ve tüfeğine oturan bir DOPE kartını nasıl çıkarırsın.</p>
+
+<h2>Balistik hesaplayıcı ne yapar?</h2>
+<p>Mermiyi namludan hedefe kadar adım adım uçurur. MV ile başlar, hava direnci mermiyi yavaşlatır, yerçekimi aşağı çeker. Sonunda her mesafe için şunları verir: mermi nişan hattının ne kadar altında ya da üstünde, rüzgâr onu ne kadar kaydırıyor, hızı ve enerjisi ne kadar kalmış.</p>
+<p>Senin için önemli olan, sonucun dürbününün dilinde gelmesi: MRAD ya da MOA cinsinden düzeltme, kulede klik sayısı ya da retikülde tutma noktası. İyi bir hesaplayıcı standart G1/G7 sürükleme tablolarıyla point-mass model kullanır ve sayısal olarak hesaplar; kaba formülle tahmin yürütmez. Çevrimdışı çalışan bir uygulamanın da pratik bir artısı var: arazide çekmeyen yerde de hesap yapar.</p>
+<p>Ama şunu unutma: hesaplayıcı, ona verdiğin girdiler kadar iyidir. En çok fark yaratanlar bunlar.</p>
+
+<h2>Sonucu değiştiren girdiler</h2>
+<h3>MV (namlu çıkış hızı)</h3>
+<p>En önemli sayı. Kutudaki hız, üreticinin test namlusunda ölçülmüştür; senin namlun daha hızlı da olabilir, daha yavaş da. Kronografla birkaç atış ölç, ortalamasını gir. Sıcaklığı da not et: birçok barut soğukta hız kaybeder.</p>
+<h3>BC: G1 mi, G7 mi?</h3>
+<p>BC, merminin hızını ne kadar iyi koruduğunu söyler ama her zaman bir sürükleme modeliyle birlikte gelir: G1 ya da G7. Bu iki sayı birbirinin yerine kullanılmaz. Tipik bir uzun menzil boattail mermide G7 BC, G1 BC'nin kabaca yarısıdır. Üreticinin verdiği değeri, hangi modelle verildiyse o modelle gir. Uzun boattail mermilerde G7 genelde geniş bir hız aralığında daha iyi oturur. Bazı üreticiler G1 için hız bantlarına göre birden fazla BC verir; buna çoklu BC denir. Ayrıntısı (İngilizce): <a href="../../guides/g1-vs-g7/">G1 vs G7 BC</a>.</p>
+<h3>Dürbün yüksekliği</h3>
+<p>Namlu ekseniyle dürbün ekseni arasındaki mesafe. Kumpasla aynı noktada dürbün gövdesinin üstünden namlunun (ya da kilit grubunun) altına kadar ölç, sonra dürbün gövde çapının yarısını (30 mm gövdede 15 mm) ve o noktadaki namlu çapının yarısını çıkar. Tipik değer 4–6 cm civarındadır. Burada yapılan hata en çok yakın mesafede kendini gösterir.</p>
+<h3>Sıfırlama (zero) mesafesi</h3>
+<p>Hesaplayıcı, mermi yolunun nişan hattını nerede kestiğini bilmek zorunda. Tüfeği 100 m'de nokta atışına sıfırladıysan (vuruş noktası = nişan noktası) 100 m gir. Ama avda sık yapıldığı gibi 100 m'de bilerek 4 cm kadar yukarı vuracak şekilde sıfırladıysan 100 yazma: mermi yolunun nişan hattını ikinci kez kestiği mesafeyi gir. Yoksa bütün tablo yaklaşık 0,4 MRAD kayar; bu da 100 m'de 4 cm, 300 m'de 12 cm demek.</p>
+<h3>Basınç, sıcaklık, rakım ve nem</h3>
+<p>Merminin ne kadar frenleneceğini havanın yoğunluğu belirler. Soğuk ve yoğun ova havası daha çok frenler; sıcak ve ince dağ havası daha az. Basınçta hesaplayıcının istediği <strong>istasyon basıncı</strong>, yani bulunduğun yerdeki gerçek basınç. Hava durumu genelde deniz seviyesine indirgenmiş değeri (QNH) verir; 600 m rakımda gerçek basınç bunun yaklaşık 70 hPa altındadır. Telefonun barometresi istasyon basıncını doğrudan ölçer. Nemin etkisi küçüktür.</p>
+
+<h2>Mermi düşüşü ve rüzgâr</h2>
+<p>Mermi düşüşü mesafeyle birlikte hızla büyür. Aşağıdaki örnekte 300 m'de 1,6 MRAD olan yükseliş, 600 m'de 5,4 MRAD'a çıkıyor. Bu yüzden uzak mesafede küçük bir mesafe hatası bile ıskalatır.</p>
+<p>Rüzgârı hız ve saat yönüyle girersin: 3 sağdan, 9 soldan esen rüzgâr demek. 3 ve 9 yönünde rüzgâr tam değeriyle iter. 1:30 ya da 4:30 gibi 45° açıyla gelen rüzgâr yaklaşık %70, 1 ya da 11 yönünden gelen yaklaşık yarısı kadar iter. Düzeltmeyi rüzgârın geldiği tarafa yaparsın. Uzak mesafede en büyük belirsizlik rüzgârdır; tek bir “kesin” değer yerine bir aralık hesapla, örneğin 2–4 m/s.</p>
+<p>Belirgin yokuş yukarı ya da aşağı atışta atış açısını gir. Girmezsen genelde yukarı vurursun.</p>
+
+<h2>Hesabı gerçek atışla doğrula</h2>
+<ol>
+<li><strong>Temeli sağlamla:</strong> temiz bir sıfırlama, ölçülmüş dürbün yüksekliği, kontrol edilmiş klik değeri. Klik değerini kontrol etmek için kuleyi 10 MRAD çevir; 100 m'de vuruş noktası 1 m kaymalı.</li>
+<li><strong>Bilinen mesafelere at:</strong> mesafeyi telemetreyle ölç, her mesafeye birkaç atış yap, sıcaklık ve basıncı not et.</li>
+<li><strong>Karşılaştır:</strong> Orta mesafede atışlar sürekli yüksek ya da alçak çıkıyorsa sorun genelde MV'dedir. Sorun sadece uzakta, özellikle mermi ses hızına yaklaşırken çıkıyorsa BC'ye bak. Bu düzeltmeye truing denir. Tablodaki satırları elle değiştirme, girdiyi düzelt.</li>
+<li><strong>Sonra güven:</strong> İki üç mesafede doğrulanmış bir tablo, virgülden sonraki her basamaktan daha değerlidir.</li>
+</ol>
+
+<h2>DOPE kartı hazırlamak</h2>
+<ul>
+<li><strong>Aralık ve adım:</strong> gerçekten attığın mesafeler kadar. Av için 50–300 m arası 25 m adım, poligon için 800 m'ye kadar 50 m adım iyi bir başlangıç.</li>
+<li><strong>Sütunlar:</strong> mesafe, kulendeki birimle yükseliş (MRAD, MOA ya da klik), bir referans rüzgâr (örneğin 3 yönünden 4 m/s). Başka rüzgâr hızları için kabaca orantı kurarsın. Hız ve enerji de işe yarar.</li>
+<li><strong>Koşulları kartın üstüne yaz:</strong> tablonun hesaplandığı sıcaklık, basınç ve rakım. Koşullar ciddi değişirse, kışın ya da dağda, yeni kart çıkar.</li>
+<li><strong>Yazdırma:</strong> PDF'i %100 ölçekte yazdır (“sayfaya sığdır” değil), büyük punto, beyaz zemine siyah yazı. Laminasyon ya da şeffaf bantla kaplarsan yağmura da dayanır.</li>
+</ul>
+<div class="tablewrap"><table class="data">
+<caption>Örnek, senin tüfeğin için değil: 11,34 g mermi, BC 0,505 (G1), MV 792,5 m/s, dürbün yüksekliği 4,45 cm, 100 m'de sıfırlama, ICAO standart atmosfer (15 °C, 1013,25 hPa), 3 yönünden 4 m/s rüzgâr (sağa düzelt). Zeroed çözücüsüyle hesaplandı, klik 0,1 MRAD.</caption>
+<thead><tr><th>Mesafe</th><th>Yükseliş MRAD</th><th>Klik</th><th>Rüzgâr MRAD</th><th>Hız (m/s)</th><th>Enerji (J)</th></tr></thead>
+<tbody>
+<tr><td>100 m</td><td>0,0</td><td>0</td><td>0,2</td><td>734</td><td>3056</td></tr>
+<tr><td>200 m</td><td>0,7</td><td>7</td><td>0,4</td><td>678</td><td>2609</td></tr>
+<tr><td>300 m</td><td>1,6</td><td>16</td><td>0,6</td><td>625</td><td>2215</td></tr>
+<tr><td>400 m</td><td>2,7</td><td>27</td><td>0,8</td><td>574</td><td>1869</td></tr>
+<tr><td>500 m</td><td>4,0</td><td>40</td><td>1,0</td><td>526</td><td>1569</td></tr>
+<tr><td>600 m</td><td>5,4</td><td>54</td><td>1,3</td><td>481</td><td>1313</td></tr>
+</tbody></table></div>
+<p>Kartı yaptıktan sonra da işin bitmediğini unutma: her doğrulama atışından sonra girdileri güncelle, kartı yeniden yazdır, üstüne tarihi yaz.</p>
+</article>
+<section class="wait" id="app">
+<h2>Kendi DOPE kartını çevrimdışı çıkar</h2>
+<p>Zeroed, avcılık ve uzun menzil atış için Türkçe, çevrimdışı bir balistik hesaplayıcı. Fabrika fişeğini seç, dürbününü ve sıfırlama mesafeni gir; yükseliş ve yan düzeltmeyi MRAD, MOA ya da klik olarak oku. DOPE tablosunu görsel ya da PDF kart olarak paylaş. Ücretsiz sürüm 800 m'ye kadar tam bir balistik hesaplayıcı. Hesap yok, reklam yok, abonelik yok.</p>
+<div class="cta"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mufatech.zeroed&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dbalistik-hesaplama">Google Play'den edinin</a><a class="btn soon" href="../../tr/#iphone">iPhone: yakında</a></div>
+</section>
+</main>
+<footer><div class="wrap">
+<span>Zeroed atış sporu ve avcılık için bir hesaplama aracıdır. Çözümler tahmindir; her zaman gerçek atışla doğrula. Bu sitede çerez ve takip yok.</span>
+<nav><a href="../../tr/">Ana sayfa</a><a href="../../tr/privacy/">Gizlilik</a><a href="../../tr/support/">Destek</a><a href="mailto:hello@mufatech.com">hello@mufatech.com</a></nav>
+<nav class="guides" aria-label="Rehberler"><b>Rehberler</b><a href="../../tr/balistik-hesaplama/">Balistik hesaplama</a></nav>
+</div></footer>
+</body>
+</html>

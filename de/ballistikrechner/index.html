@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ballistikrechner-App offline: Haltepunkt, Wind und Schusstafel</title>
+<meta name="description" content="Was ein Ballistikrechner rechnet, welche Eingaben zählen (V0, BC G1/G7, Visierhöhe, GEE oder Fleck, Luftdruck) und wie du die Schusstafel prüfst und druckst.">
+<meta name="theme-color" content="#0a0c0b">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://mufa-tech.github.io/zeroed/de/ballistikrechner/">
+<link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/zeroed/de/ballistikrechner/">
+<link rel="alternate" hreflang="tr" href="https://mufa-tech.github.io/zeroed/tr/balistik-hesaplama/">
+<link rel="icon" type="image/png" href="/zeroed/icon.png">
+<link rel="apple-touch-icon" href="/zeroed/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Zeroed">
+<meta property="og:title" content="Ballistikrechner-App offline: Haltepunkt, Wind und Schusstafel">
+<meta property="og:description" content="Was ein Ballistikrechner rechnet, welche Eingaben zählen (V0, BC G1/G7, Visierhöhe, GEE oder Fleck, Luftdruck) und wie du die Schusstafel prüfst und druckst.">
+<meta property="og:url" content="https://mufa-tech.github.io/zeroed/de/ballistikrechner/">
+<meta property="og:image" content="https://mufa-tech.github.io/zeroed/icon.png">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="../../de/"><i aria-hidden="true"></i>Zeroed</a>
+<nav class="lang" aria-label="Language"><a href="../../" hreflang="en" lang="en">EN</a><a href="../../tr/balistik-hesaplama/" hreflang="tr" lang="tr">TR</a><a href="../../de/ballistikrechner/" hreflang="de" lang="de" aria-current="page">DE</a><a href="../../ru/" hreflang="ru" lang="ru">RU</a></nav>
+</div></header>
+<main class="wrap prose">
+<article>
+<p class="eyebrow">Ratgeber</p>
+<h1>Ballistikrechner-App offline: Haltepunkt, Wind und Schusstafel</h1>
+<p class="lead">Was ein Ballistikrechner wirklich rechnet, welche Eingaben den Unterschied machen und wie aus der Rechnung eine Schusstafel wird, der du auf dem Stand und im Revier trauen kannst.</p>
+
+<h2>Was ein Ballistikrechner macht</h2>
+<p>Ein Ballistikrechner simuliert den Flug des Geschosses von der Mündung bis zum Ziel. Er startet mit der Mündungsgeschwindigkeit (V0), bremst das Geschoss Schritt für Schritt mit dem Luftwiderstand ab und lässt die Schwerkraft wirken. Heraus kommt für jede Entfernung: wie weit das Geschoss unter oder über der Visierlinie liegt, wie stark der Wind es versetzt, wie schnell es noch ist und welche Energie es hat.</p>
+<p>Für dich zählt das Ergebnis in der Sprache deines Zielfernrohrs: als Verstellung in MRAD oder MOA, in Klicks am Turm oder als Haltepunkt im Absehen. Gute Rechner nutzen ein Punktmassen-Modell mit den Standard-Widerstandskurven G1 oder G7 und rechnen numerisch, statt mit Faustformeln zu schätzen. Eine Offline-App hat einen praktischen Vorteil: Sie rechnet auch dort, wo im Revier kein Netz ist.</p>
+<p>Wichtig: Der Rechner ist nur so gut wie deine Eingaben. Diese machen den größten Unterschied.</p>
+
+<h2>Die Eingaben, die zählen</h2>
+<h3>V0 – die Mündungsgeschwindigkeit</h3>
+<p>Die wichtigste Zahl. Die Angabe auf der Packung gilt für den Testlauf des Herstellers; dein Lauf kann deutlich schneller oder langsamer sein. Miss V0 mit einem Chronographen über mehrere Schüsse und nimm den Mittelwert. Notiere die Temperatur dazu: Viele Pulver liefern bei Kälte weniger Geschwindigkeit.</p>
+<h3>BC – ballistischer Koeffizient, G1 oder G7</h3>
+<p>Der BC beschreibt, wie gut das Geschoss seine Geschwindigkeit hält. Er gehört immer zu einem Widerstandsmodell, G1 oder G7, und die Zahlen sind nicht austauschbar: Bei einem typischen Langgeschoss ist der G7-BC ungefähr halb so groß wie der G1-BC. Nimm den Wert vom Geschosshersteller und wähle im Rechner das Modell, für das er angegeben ist. Für lange Boattail-Geschosse passt G7 meist über einen weiten Geschwindigkeitsbereich; manche Hersteller geben für G1 mehrere BCs nach Geschwindigkeitsbereichen an (Multi-BC). Mehr dazu (auf Englisch): <a href="../../guides/g1-vs-g7/">G1 vs G7 BC</a>.</p>
+<h3>Visierhöhe</h3>
+<p>Der Abstand zwischen der Mitte der Laufbohrung und der Mitte des Zielfernrohrs. So misst du ihn: mit dem Messschieber von der Oberkante des Mittelrohrs bis zur Unterkante von Lauf bzw. System an derselben Stelle, dann den halben Rohrdurchmesser (bei 30 mm also 15 mm) und den halben Lauf- bzw. Systemdurchmesser an dieser Stelle abziehen. Typisch sind etwa 4 bis 6 cm. Ein Fehler hier wirkt vor allem auf kurze Entfernungen.</p>
+<h3>Einschießentfernung: Fleck oder GEE</h3>
+<p>Der Rechner muss wissen, wo die Flugbahn deine Visierlinie schneidet. Zwei Arten sind verbreitet:</p>
+<ul>
+<li><strong>Fleck auf 100 m:</strong> Treffpunkt gleich Haltepunkt auf 100 m. Passt, wenn du für weitere Entfernungen am Turm verstellst. Eingabe: 100 m.</li>
+<li><strong>GEE (günstigste Einschießentfernung):</strong> Du schießt auf 100 m rund 4 cm hoch ein, damit die Flugbahn über eine möglichst lange Strecke nicht mehr als etwa 4 cm von der Visierlinie abweicht. Treffpunkt und Haltepunkt fallen dann erst weiter draußen wieder zusammen, und genau diese Entfernung gehört als Einschießentfernung in den Rechner, nicht 100 m.</li>
+</ul>
+<p>Wer „100 m“ einträgt, obwohl er auf 100 m 4 cm hoch steht, bekommt eine Tafel, die durchgehend um rund 0,4 MRAD danebenliegt: auf 100 m 4 cm, auf 300 m schon 12 cm. Wo deine GEE liegt, hängt von der Laborierung ab. Du findest sie in der Schusstafel als die Entfernung, an der die Abweichung zum zweiten Mal null wird.</p>
+<figure class="fig">
+<svg viewBox="0 0 640 230" role="img" aria-labelledby="gee-t"><title id="gee-t">Schema: Flugbahn bei GEE-Einschuss relativ zur Visierlinie</title>
+<rect class="band" x="100" y="90" width="520" height="60"/>
+<text x="92" y="94" text-anchor="end">+4 cm</text><text x="92" y="124" text-anchor="end">0</text><text x="92" y="154" text-anchor="end">−4 cm</text>
+<line class="los" x1="100" y1="120" x2="620" y2="120"/>
+<polyline class="c1" points="100,144.9 110,140.2 120,135.8 130,131.5 140,127.5 150,123.6 160,120.0 170,116.6 180,113.4 190,110.3 200,107.5 210,104.9 220,102.6 230,100.4 240,98.4 250,96.6 260,95.1 270,93.7 280,92.6 290,91.7 300,90.9 310,90.4 320,90.1 330,90.0 340,90.1 350,90.4 360,90.9 370,91.7 380,92.6 390,93.7 400,95.1 410,96.6 420,98.4 430,100.4 440,102.6 450,104.9 460,107.5 470,110.3 480,113.4 490,116.6 500,120.0 510,123.6 520,127.5 530,131.5 540,135.8 550,140.2 560,144.9 570,149.8 580,154.9 590,160.2 600,165.7 610,171.4 620,177.3"/>
+<circle class="dot" cx="160" cy="120" r="5"/><circle class="dot" cx="500" cy="120" r="5"/><circle class="dot" cx="570" cy="150" r="4"/>
+<text x="615" y="112" text-anchor="end">Visierlinie</text>
+<text x="100" y="172">Mündung</text>
+<text x="168" y="142">Nahschnittpunkt</text>
+<text x="330" y="80" text-anchor="middle">Scheitel, rund 4 cm hoch</text>
+<text x="500" y="142" text-anchor="middle">GEE</text>
+<text x="566" y="176" text-anchor="end">4 cm tief</text>
+<text x="620" y="218" text-anchor="end">Entfernung →</text>
+</svg>
+<figcaption>Schematisch, nicht maßstäblich. Bei GEE-Einschuss steigt die Flugbahn über die Visierlinie, erreicht ihren Scheitel rund 4 cm hoch und schneidet die Visierlinie an der GEE ein zweites Mal. Diese Entfernung gehört als Einschießentfernung in den Rechner.</figcaption>
+</figure>
+<h3>Luftdruck, Temperatur und Höhe</h3>
+<p>Die Luftdichte bestimmt, wie stark das Geschoss gebremst wird. Kalte, dichte Luft im Flachland bremst mehr als warme, dünne Luft im Gebirge. Beim Luftdruck braucht der Rechner den <strong>Stationsdruck</strong>, also den Druck, der an deinem Standort tatsächlich herrscht. Der Wetterbericht nennt meist den auf Meereshöhe umgerechneten Wert (QNH); in 600 m Höhe liegt der echte Druck rund 70 hPa darunter. Das Barometer im Handy misst den Stationsdruck direkt. Die Luftfeuchte spielt nur eine kleine Rolle.</p>
+<h3>Wind und Schusswinkel</h3>
+<p>Wind ist auf Distanz die größte Unsicherheit. Du gibst Geschwindigkeit und Richtung als Uhrzeit an: 3 Uhr heißt Wind von rechts. Den vollen Wert hat Wind von 3 und 9 Uhr; kommt er schräg, etwa von 1:30 Uhr, wirken ungefähr 70 %. Rechne lieber mit einer Spanne, zum Beispiel 2 bis 4 m/s, als mit einem scheinbar exakten Wert. Schießt du deutlich bergauf oder bergab, gib den Schusswinkel ein; sonst liegt der Treffer meist zu hoch.</p>
+
+<h2>Mit echten Schüssen prüfen</h2>
+<ol>
+<li><strong>Grundlagen sichern:</strong> sauberer Einschuss, gemessene Visierhöhe, geprüfter Klickwert. Für den Klickwert verstellst du den Turm um 10 MRAD; auf 100 m sollte der Treffpunkt 1 m wandern.</li>
+<li><strong>Auf bekannte Entfernungen schießen:</strong> mit Entfernungsmesser gemessen, mehrere Schüsse je Entfernung, Temperatur und Luftdruck notieren.</li>
+<li><strong>Vergleichen:</strong> Liegen die Treffer auf mittlerer Distanz durchweg hoch oder tief, stimmt meist die V0 nicht. Auf großen Distanzen, besonders kurz vor dem Übergang in den Unterschall, zeigt sich der BC. Dieses Abgleichen heißt Truing. Korrigiere die Eingabe, nicht einzelne Zeilen der Tafel.</li>
+<li><strong>Erst dann vertrauen:</strong> Eine Tafel, die du auf zwei oder drei Entfernungen bestätigt hast, ist mehr wert als jede Nachkommastelle.</li>
+</ol>
+
+<h2>Schusstafel erstellen und drucken</h2>
+<ul>
+<li><strong>Bereich und Schrittweite:</strong> nur so weit, wie du realistisch schießt. Für die Jagd etwa 50 bis 300 m in 25-m-Schritten, für den Stand bis 800 m in 50-m-Schritten.</li>
+<li><strong>Spalten:</strong> Entfernung, Höhe in der Einheit deines Turms (MRAD, MOA oder Klicks), Wind für einen Referenzwert wie 4 m/s von 3 Uhr. Andere Windstärken kannst du grob linear umrechnen. Geschwindigkeit und Energie sind ein nützlicher Zusatz.</li>
+<li><strong>Bedingungen auf die Karte:</strong> Temperatur, Luftdruck und Höhe, für die die Tafel gilt. Ändern sie sich stark, etwa im Winter oder im Gebirge, druck eine neue.</li>
+<li><strong>Drucken:</strong> PDF in 100 % (nicht „an Seite anpassen“), große Schrift, schwarz auf weiß. Laminieren oder mit Klebefolie schützen, dann übersteht die Karte auch Regen.</li>
+</ul>
+<div class="tablewrap"><table class="data">
+<caption>Beispiel, nicht für deine Waffe: Geschoss 11,34 g, BC 0,505 (G1), V0 792,5 m/s, Visierhöhe 4,45 cm, Fleck auf 100 m, ICAO-Standardatmosphäre (15 °C, 1013,25 hPa), Wind 4 m/s von 3 Uhr (nach rechts korrigieren). Gerechnet mit dem Zeroed-Solver, Klicks zu 0,1 MRAD.</caption>
+<thead><tr><th>Entfernung</th><th>Höhe MRAD</th><th>Klicks</th><th>Wind MRAD</th><th>V (m/s)</th><th>E (J)</th></tr></thead>
+<tbody>
+<tr><td>100 m</td><td>0,0</td><td>0</td><td>0,2</td><td>734</td><td>3056</td></tr>
+<tr><td>200 m</td><td>0,7</td><td>7</td><td>0,4</td><td>678</td><td>2609</td></tr>
+<tr><td>300 m</td><td>1,6</td><td>16</td><td>0,6</td><td>625</td><td>2215</td></tr>
+<tr><td>400 m</td><td>2,7</td><td>27</td><td>0,8</td><td>574</td><td>1869</td></tr>
+<tr><td>500 m</td><td>4,0</td><td>40</td><td>1,0</td><td>526</td><td>1569</td></tr>
+<tr><td>600 m</td><td>5,4</td><td>54</td><td>1,3</td><td>481</td><td>1313</td></tr>
+</tbody></table></div>
+<p>Jagdlich wichtig ist auch die Energie auf der tatsächlichen Schussentfernung. Was das Bundesjagdgesetz zur Energie auf 100 m verlangt, steht im Ratgeber <a href="../jagd-energie/">Mindestenergie für Schalenwild: E100 nach § 19 BJagdG</a>.</p>
+</article>
+<section class="wait" id="app">
+<h2>Deine Schusstafel, offline</h2>
+<p>Zeroed ist ein Offline-Ballistikrechner für Jagd und Weitschuss, komplett auf Deutsch. Fabrikmunition wählen, Zielfernrohr und Einschießentfernung eintragen, Höhen- und Seitenkorrektur in MRAD, MOA oder Klicks ablesen. Die DOPE-Tabelle gibt es als Bild oder PDF-Karte. Gratis ist schon ein vollständiger Ballistikrechner bis 800 m. Kein Konto, keine Werbung, kein Abo.</p>
+<div class="cta"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mufatech.zeroed&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dballistikrechner">Jetzt bei Google Play</a><a class="btn soon" href="../../de/#iphone">iPhone: bald verfügbar</a></div>
+</section>
+</main>
+<footer><div class="wrap">
+<span>Zeroed ist ein Rechenwerkzeug für Sportschießen und Jagd. Lösungen sind Berechnungen; prüfe sie immer mit echten Schüssen. Keine Cookies, kein Tracking auf dieser Seite.</span>
+<nav><a href="../../de/">Start</a><a href="../../de/privacy/">Datenschutz</a><a href="../../de/support/">Support</a><a href="mailto:hello@mufatech.com">hello@mufatech.com</a></nav>
+<nav class="guides" aria-label="Ratgeber"><b>Ratgeber</b><a href="../../de/ballistikrechner/">Ballistikrechner offline</a><a href="../../de/jagd-energie/">E100 nach § 19 BJagdG</a></nav>
+</div></footer>
+</body>
+</html>
