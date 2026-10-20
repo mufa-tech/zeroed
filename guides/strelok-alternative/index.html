@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strelok Pro alternative: offline, one-time purchase</title>
+<meta name="description" content="The original Strelok Pro is gone from Google Play. What changed, how to move your rifle and load data into Zeroed field by field, and what Zeroed does not do yet.">
+<meta name="theme-color" content="#0a0c0b">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://mufa-tech.github.io/zeroed/guides/strelok-alternative/">
+<link rel="alternate" hreflang="en" href="https://mufa-tech.github.io/zeroed/guides/strelok-alternative/">
+<link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/zeroed/de/strelok-alternative/">
+<link rel="icon" type="image/png" href="/zeroed/icon.png">
+<link rel="apple-touch-icon" href="/zeroed/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Zeroed">
+<meta property="og:title" content="Strelok Pro alternative: offline, one-time purchase">
+<meta property="og:description" content="The original Strelok Pro is gone from Google Play. What changed, how to move your rifle and load data into Zeroed field by field, and what Zeroed does not do yet.">
+<meta property="og:url" content="https://mufa-tech.github.io/zeroed/guides/strelok-alternative/">
+<meta property="og:image" content="https://mufa-tech.github.io/zeroed/icon.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="../../"><i aria-hidden="true"></i>Zeroed</a>
+<nav class="lang" aria-label="Language"><a href="../../guides/strelok-alternative/" hreflang="en" lang="en" aria-current="page">EN</a><a href="../../tr/" hreflang="tr" lang="tr">TR</a><a href="../../de/strelok-alternative/" hreflang="de" lang="de">DE</a><a href="../../ru/" hreflang="ru" lang="ru">RU</a></nav>
+</div></header>
+<main class="wrap prose">
+<article>
+<p class="eyebrow">Guide</p>
+<h1>Strelok Pro alternative: offline, one-time purchase</h1>
+<p class="lead">If your ballistic data lived in the original Strelok Pro, here is what changed, how to move your rifle and load into Zeroed field by field, and what Zeroed does not do yet.</p>
+<p class="updated">Facts on this page checked on 2026-10-20. Store pages and prices change, so follow the source links.</p>
+
+<h2>What happened</h2>
+<ul>
+<li><strong>The original Strelok Pro</strong> by Igor Borisov (Android package <code>com.borisov.strelokpro</code>) is no longer on Google Play. Its store page returns “not found”. Source: <a href="https://play.google.com/store/apps/details?id=com.borisov.strelokpro" rel="noopener">Google Play page</a>, checked on 2026-10-20.</li>
+<li><strong>“Strelok Pro – Ballistic Platform”</strong> is a separate app from a different publisher: Strelok LLC on the App Store and Kamil Suleymanov on Google Play (package <code>com.strelok.ballistic</code>). Sources: <a href="https://apps.apple.com/us/app/id6759365438" rel="noopener">App Store (US)</a>, <a href="https://play.google.com/store/apps/details?id=com.strelok.ballistic" rel="noopener">Google Play</a>, checked on 2026-10-20.</li>
+<li>That app is free to download, with subscriptions and a lifetime purchase. Its store listing describes GPT-based and live-weather features, which need a network connection.</li>
+</ul>
+<p>If the copy you already have still works for you, there is no need to rush. This guide is for anyone setting up a new phone, or anyone who wants an offline calculator with a one-time price.</p>
+
+<h2>Side by side: the verifiable facts</h2>
+<div class="tablewrap"><table class="data">
+<caption>Checked on 2026-10-20. US prices from the App Store listing of Strelok Pro – Ballistic Platform and from the Zeroed Google Play listing.</caption>
+<thead><tr><th></th><th>Zeroed</th><th>Strelok Pro – Ballistic Platform</th></tr></thead>
+<tbody>
+<tr><td>Pricing model</td><td>Free, plus one-time Pro. 7 days free. Nothing renews.</td><td>Free, plus monthly or yearly subscriptions, or a lifetime purchase</td></tr>
+<tr><td>Price (US)</td><td>Pro US $14.99 launch price for the first 60 days, then US $24.99</td><td>Pro $4.99/month or $29.99/year; Pro Plus $9.99/month or $59.99/year; Lifetime $79.99</td></tr>
+<tr><td>Network</td><td>Fully offline. Only purchases go through Google Play. No account.</td><td>Listing describes GPT-based and live-weather features (need a connection)</td></tr>
+<tr><td>Platforms</td><td>Android now; iPhone coming soon</td><td>iOS and Android</td></tr>
+</tbody></table></div>
+<p class="note">Sources: <a href="https://apps.apple.com/us/app/id6759365438" rel="noopener">App Store (US)</a>, <a href="https://play.google.com/store/apps/details?id=com.strelok.ballistic" rel="noopener">Google Play: com.strelok.ballistic</a>, <a href="https://play.google.com/store/apps/details?id=com.mufatech.zeroed" rel="noopener">Google Play: Zeroed</a>.</p>
+
+<h2>Before you switch: write your numbers down</h2>
+<p>Zeroed can’t read files from other apps, so you copy the numbers by hand. It takes about ten minutes per rifle. Field names differ between apps, so the quickest way is a screenshot of each screen in your old app. You need:</p>
+<ul>
+<li><strong>Rifle:</strong> sight height, zero range, barrel twist rate and direction, scope click value.</li>
+<li><strong>Load:</strong> bullet weight, caliber, bullet length (if you have it), BC and its drag model (G1 or G7), any velocity-banded BCs, muzzle velocity and the temperature it was measured at.</li>
+<li><strong>Anything you trued:</strong> the trued muzzle velocity or BC, and the range where you confirmed it.</li>
+</ul>
+
+<h2>Field by field: where each number goes</h2>
+<h3>Rifle: Rifles tab → Add rifle</h3>
+<div class="tablewrap"><table class="data">
+<thead><tr><th>Your number</th><th>Zeroed field</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Rifle name</td><td>Rifle name</td><td>Anything you’ll recognise.</td></tr>
+<tr><td>Scope</td><td>Scope name</td><td>Optional.</td></tr>
+<tr><td>Click value</td><td>Click value</td><td>0.1 MIL, 0.05 MIL, ¼ MOA or ⅛ MOA. Check it on your turret, not on the box.</td></tr>
+<tr><td>Zero distance</td><td>Zero range</td><td>In m or yd. The range where point of aim and point of impact meet with the turrets at zero. If you zero a few cm high at 100 m, enter the far range where they meet again, not 100.</td></tr>
+<tr><td>Sight height</td><td>Sight height</td><td>In cm or in. Centre of the bore to centre of the scope; most scoped rifles are 4–6 cm (1.5–2.5 in).</td></tr>
+<tr><td>Twist rate</td><td>Twist rate (in/turn) and Right / Left</td><td>Needed for spin drift. If your old app used mm per turn, divide by 25.4 (254 mm = 10 in).</td></tr>
+</tbody></table></div>
+
+<h3>Load: Add load, or pick from the library</h3>
+<p>Shooting factory ammo? Tap <strong>From library</strong> first. Zeroed has 2,300+ factory loads from the makers’ published specs, free. Then replace the box velocity with your own chronographed muzzle velocity.</p>
+<div class="tablewrap"><table class="data">
+<thead><tr><th>Your number</th><th>Zeroed field</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Load name</td><td>Load name</td><td>For example “175 SMK 44.5 gr”.</td></tr>
+<tr><td>Muzzle velocity</td><td>Muzzle velocity</td><td>In m/s or fps. The single most important input.</td></tr>
+<tr><td>BC and drag function</td><td>BC and Drag model (G1 / G7)</td><td>A G7 number goes with G7, a G1 number with G1. Never mix them: a G7 BC is roughly half the G1 BC for the same bullet.</td></tr>
+<tr><td>Several BCs by velocity</td><td>Multi-BC (velocity bands)</td><td>Add each band as “Above [velocity]” with its BC, as the bullet maker publishes them.</td></tr>
+<tr><td>Bullet weight</td><td>Bullet weight (gr)</td><td>Grams × 15.432 = grains.</td></tr>
+<tr><td>Caliber / bullet diameter</td><td>Caliber (in)</td><td>For example 0.308. Millimetres ÷ 25.4 = inches.</td></tr>
+<tr><td>Bullet length</td><td>Bullet length (optional)</td><td>In inches. Used for spin drift.</td></tr>
+<tr><td>Powder temperature table</td><td>MV measured at and Temp. sensitivity</td><td>The temperature of your MV reading, and how much MV changes per °C.</td></tr>
+</tbody></table></div>
+
+<h3>Conditions: Solve tab</h3>
+<ul>
+<li><strong>Temperature, Humidity</strong>, and <strong>Pressure</strong> from the phone’s barometer (station pressure) or from <strong>Altitude</strong>. Station pressure is the real pressure where you stand, not the sea-level number in a weather report.</li>
+<li><strong>Wind speed</strong> and <strong>Direction</strong> as a clock position: 3 o’clock is wind from the right. There is a wind bracket and segmented wind.</li>
+<li><strong>Incline</strong>: + uphill, − downhill.</li>
+<li><strong>Coriolis</strong> (Pro): <strong>Latitude</strong> and <strong>Shot direction</strong> (compass bearing to the target), typed in by hand. No location permission.</li>
+</ul>
+<p>In <strong>Settings</strong>, set <strong>Units</strong> (Metric or Imperial) and <strong>Show corrections in</strong> (MRAD, MOA or clicks) to match your turrets.</p>
+
+<h2>Check it, then true it</h2>
+<ol>
+<li><strong>Compare.</strong> With identical inputs, put 300, 600 and 800 m side by side in both apps. Small differences are normal: solvers differ in drag-table interpolation and air-density details. A big difference almost always means a units mix-up, a wrong zero range, the wrong sight height, or G1 and G7 swapped.</li>
+<li><strong>Confirm with real shots.</strong> A trued value from another app was fitted to that app’s solver. Start with it, then confirm at distance again.</li>
+<li><strong>True it in Zeroed</strong> (Pro): <strong>True this load</strong>, then enter the hold that actually hit. Zeroed adjusts velocity or BC to fit.</li>
+<li><strong>Print the DOPE card</strong> as an image or PDF. Free cards carry a watermark.</li>
+</ol>
+
+<h2>What Zeroed does</h2>
+<ul>
+<li>100% offline, even in airplane mode. No account, no ads, no tracking.</li>
+<li>Point-mass RK4 solver, G1/G7 BC and multi-BC. It agrees with an independent open-source solver within 0.33% (worst case) across 7 cartridges and 42 ranges.</li>
+<li>Wind bracket, segmented wind, incline, phone barometer.</li>
+<li>DOPE chart shared as an image or a PDF card, to 800 m / 875 yd free and 2000 m / 2200 yd with Pro.</li>
+<li>Pro: spin drift, Coriolis, truing, unlimited rifles and loads, the bullet library, the Night theme, and the Lab (chronograph CSV import from Garmin Xero or LabRadar, group size from a photo, load development log, hunt planner, PRS stage card).</li>
+<li>English, Deutsch, Türkçe, Русский.</li>
+</ul>
+
+<h2>What Zeroed doesn’t do (yet)</h2>
+<ul>
+<li><strong>No Bluetooth.</strong> No Kestrel and no rangefinder connection. Chronograph data comes in as a CSV file or typed in.</li>
+<li><strong>No import from other apps.</strong> You copy your numbers over, as above.</li>
+<li><strong>No load data</strong>, ever. The load log only records your own tests.</li>
+<li><strong>No watch app</strong> and no iPhone version yet.</li>
+</ul>
+<div class="callout"><p>Free is a complete calculator and stays that way: 1 rifle, 2 loads, out to 800 m / 875 yd, factory loads, the DOPE table and a watermarked card. Your data stays on your phone. Back it up with <strong>Settings → Back up to a file</strong>, and bring it back with <strong>Restore from a file</strong>.</p></div>
+<p class="note">Strelok and Strelok Pro are names of their respective owners. Zeroed is not affiliated with or endorsed by them. Every solution is an estimate; always confirm with real shots.</p>
+</article>
+<section class="wait" id="app">
+<h2>Move your rifle over in ten minutes</h2>
+<p>Zeroed is an offline ballistic calculator for hunting and long range shooting. Pro is one payment for life: US $14.99 for the first 60 days, then US $24.99, with 7 days free. No account, no ads, no subscription.</p>
+<div class="cta"><a class="btn primary" href="https://play.google.com/store/apps/details?id=com.mufatech.zeroed&amp;referrer=utm_source%3Dsite%26utm_medium%3Dweb%26utm_campaign%3Dstrelok-alternative">Get it on Google Play</a><a class="btn soon" href="../../#iphone">iPhone: coming soon</a></div>
+</section>
+</main>
+<footer><div class="wrap">
+<span>Zeroed is a calculation tool for sport shooting and hunting. Solutions are estimates; always confirm with real shots. No cookies, no trackers on this site.</span>
+<nav><a href="../../">Home</a><a href="../../privacy/">Privacy</a><a href="../../support/">Support</a><a href="mailto:hello@mufatech.com">hello@mufatech.com</a></nav>
+<nav class="guides" aria-label="Guides"><b>Guides</b><a href="../../guides/dope-card/">How to make a DOPE card</a><a href="../../guides/g1-vs-g7/">G1 vs G7 BC</a><a href="../../guides/strelok-alternative/">Strelok Pro alternative</a></nav>
+</div></footer>
+</body>
+</html>
